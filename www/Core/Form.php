@@ -45,8 +45,6 @@ class Form
 
 		foreach ($form["input"] as $name => $dataInput) {
 
-			$html .="<label for='".$name."'>".($dataInput["label"]??"")." </label>";
-
 
 			$html .= "<input 
 						id='".$name."'

@@ -20,26 +20,8 @@ class Security{
 	public function registerAction(){
 		
 		
-		/*
-		$user = new User();
-		$user->setId(3);
-		$user->setLastname("Tutu");
-
-		 
-			[id:App\Models\User:private] => 3 
-			[firstname:protected] => Toto
-			[lastname:protected] => Tutu 
-			[email:protected] => y.skrzypczyk@gmail.com
-			[pwd:protected] => Test1234
-			[country:protected] => fr
-			[status:protected] => 0 
-			[role:protected] => 0 
-			[isDeleted:protected] => 0 
-		*/
-
-
-		//$user->save();
-
+		
+		
 		$user = new User();
 		$view = new View("register");
 		$form = $user->buildFormRegister();
@@ -52,12 +34,12 @@ class Security{
 
 			if(empty($errors)){
 
-				$user->setFirstname("Toto");
-				$user->setLastname("Titi");
-				$user->setEmail("y.skrzypczyk@gmail.com");
-				$user->setPwd("Test1234");
+				$user->setFirstname($_POST["firstname"]);
+				$user->setLastname($_POST["lastname"]);
+				$user->setEmail($_POST["email"]);
+				$user->setPwd($_POST["pwd"]);
 				$user->setCountry("fr");
-				//$user->save();
+				$user->save();
 
 			}else{
 				$view->assign("formErrors", $errors);
